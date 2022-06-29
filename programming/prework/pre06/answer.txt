@@ -1,0 +1,21 @@
+Ch. 7 Exercise 1
+
+1. Iteration #    i      n
+0                 10     10
+1                 5      10
+2                 6      10
+3                 3      10
+4                 4      10
+5                 2      10
+6                 1      10 <-- the while loop is false and the code inside it does not run for this iteration
+
+
+2. 
+10
+5
+6
+3
+4
+2
+
+3. Every integer can be written in binary with a finite # digits (I'm not sure exactly how to prove this so I am taking it as given). In binary, what this algorithm does is check if the # ends in 0 or 1. If it ends in 1, we add 1 (turning the end into a 0) and if it ends in 0 we truncate the last digit. This algorithm terminates because each number has a finite # of digits and dividing by 2 shortens the # of digits, while (adding 1 and then dividing by 2) either shortens the # of digits OR gives the same # of digits but with a 0 at the end which can be truncated in the next step (which happens if the original number ended in 11). This means that if you jump by 3 steps the number *always* ends with fewer digits, and since every number starts with a finite # of digits, eventually you will go through all of the digits and be left with 1, which terminates the loop.

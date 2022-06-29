@@ -1,0 +1,7 @@
+Ch. 8 Exercise 2
+
+Banana: Returns the multiplicative product of all of the elements in an array. kiwi is used as a variable to represent the product so far, so that as you go through the array you continuously multiply kiwi by each element in the array.
+
+Grapefruit: Searches through an array for a particular value and returns the index of the first place where that value appears. If the value isn't in the index, the method returns -1. grape is a variable representing the value that the method is searching for.
+
+Pineapple: Goes through an array and counts the number of times that a certain value appears. Apple is the variable used to represent the value that is being counted. Pear is a variable used to represent the count. Pine is used to represent a single element in the array in the enhanced for loop.

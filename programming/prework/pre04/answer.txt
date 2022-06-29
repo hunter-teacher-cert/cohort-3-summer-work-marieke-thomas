@@ -1,0 +1,27 @@
+Ch. 5 Exercises
+
+Exercise 1. 
+if (x > 0 && x < 10) {
+  System.out.println("positive single digit number.");
+}
+
+Exercise 2. 
+1. The stack diagram is below with [] used to represent boxes
+
+main[bizz[5]  buzz[2]]
+clink[fork[4]]
+zoop[fred["breakfast"]  bob[4]]
+
+2. It will output:
+just for
+any not more
+It's breakfast
+!
+
+Exercise 3.
+main[]
+countdown[n[4]]
+countdown[n[3]]
+countdown[n[2]]
+countdown[n[1]]
+countdown[n[0]]
