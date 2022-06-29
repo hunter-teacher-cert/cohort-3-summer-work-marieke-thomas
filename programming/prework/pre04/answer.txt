@@ -20,8 +20,8 @@ It's breakfast
 
 Exercise 3.
 main[]
-countdown[n[4]]
-countdown[n[3]]
-countdown[n[2]]
-countdown[n[1]]
-countdown[n[0]]
+nLines[n[4]]
+nLines[n[3]]
+nLines[n[2]]
+nLines[n[1]]
+nLines[n[0]] <-- Doesn't do anything since the if statement is false

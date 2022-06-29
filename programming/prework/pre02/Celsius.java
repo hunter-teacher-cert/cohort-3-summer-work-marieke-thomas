@@ -9,6 +9,7 @@ public class Celsius{
 
     System.out.print("Enter a temperature in Celsius: ");
     celsius = in.nextDouble();
+    in.nextLine();
     farenheit = celsius*9.0/5.0 + 32;
     System.out.printf("%.1f C = %.1f F\n", celsius, farenheit);
   }
