@@ -13,7 +13,7 @@ public class Beer{
       System.out.println(num + " bottles of beer on the wall,");
       System.out.println(num + " bottles of beer,");
       System.out.println("ya' take one down, ya' pass it around,");
-      System.out.println(num + " bottles of beer on the wall.");
+      System.out.println((num-1) + " bottles of beer on the wall.");
       System.out.println();
       verse(num-1);
     }
