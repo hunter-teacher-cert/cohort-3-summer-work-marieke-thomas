@@ -24,4 +24,10 @@ public class Beer{
     System.out.println("ya’ can’t take one down, ya’ can’t pass it around,");
     System.out.println("’cause there are no more bottles of beer on the wall!");
   }
+
+  public static void pluralOrNot(){
+    
+  }
 }
+
+//create function pluralOrNot using ternary operator
