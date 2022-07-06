@@ -164,7 +164,7 @@ public static int[] buildIncreasingArray( int size, int startValue, int step )
         return false;
       }
     }
-    return true; // replace this
+    return true;
 
   }
 
@@ -175,9 +175,7 @@ public static int[] buildIncreasingArray( int size, int startValue, int step )
      value of the largest element in the array
   */
   public static int findMaxValue( int[] data ) {
-    int m = Integer.MIN_VALUE;  // will hold the maximum value;
-
-    /* YOUR BRILLIANT CODE HERE */
+    int m = Integer.MIN_VALUE;
 
     for (int i=0; i<data.length; i++){
       if (data[i] > m){
@@ -199,18 +197,11 @@ public static int[] buildIncreasingArray( int size, int startValue, int step )
   */
   public static int countOdds( int[] data ) {
     int count = 0;
-
-    /* YOUR BRILLIANT CODE HERE */
-
     for (int i=0; i<data.length; i++){
       if (data[i]%2 != 0){
         count ++;
       }
     }
-
-    // Note the % operator is the modulo (basically remainder) function
-    // in java. Use to determine if an integer is odd.
-
     return count;
   }
 
@@ -228,24 +219,29 @@ public static int[] buildIncreasingArray( int size, int startValue, int step )
   */
   public static void flip( int[] data )
   {
-    int[] placeholder = new int[data.length];
+    //This method works locally but doesn't change the global data. You would have to edit the flip function to return the array and then do data = flip(data);
+    // int[] placeholder = new int[data.length];
+
+    // for (int i=0; i<data.length; i++){
+    //   placeholder[i] = data[data.length-i-1];
+    // }
+    // data = placeholder;
+    // printArray(data);
     
-    /* YOUR BRILLIANT CODE HERE */
-    for (int i=0; i<data.length; i++){
-      placeholder[i] = data[data.length-i-1];
+    //Method that manipulates the global array
+    int x = 0;
+    int end = data.length/2;
+    for (int i=0; i<end; i++){
+      x = data[i];
+      data[i] = data[(data.length-i)-1];
+      data[(data.length-i)-1] = x;
     }
-    data = placeholder;
-    printArray(data);
   }
     
 
 
   public static void main( String[] args )
   {
-
-    // remove the comments as you complete each routine
-    // and add more lines as you add additional routines.
-
     System.out.println("Increasing array");
     int[] data2 = buildIncreasingArray(10,5,3);
     printArray(data2);
@@ -273,10 +269,9 @@ public static int[] buildIncreasingArray( int size, int startValue, int step )
 
     int oddNum = countOdds(data);
     System.out.println("There are " + oddNum + " odd numbers in the array");
-    // add calls to show that the methods you write work.
 
     System.out.print("This is the reverse array: ");
     flip(data);
-
+    printArray(data);
   }
 }
