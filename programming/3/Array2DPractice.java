@@ -3,8 +3,8 @@ import java.util.*;
 
 /**
  * Array2DPractice by Team LucidThinkeren
- * First Last
- * collaborators: First Last, First Last
+ * Marieke Thomas
+ * collaborators: Ben Eckly, Greg Sciame
  */
 
 /**
@@ -178,6 +178,9 @@ public class Array2DPractice
      XzXqq
      XXXXX
      qqqXz
+
+  Note: If multiple target characters are adjacent, the first will explode and override the second (to fix, change the explodeSquare method to check the char and not change if it is the target value)
+OR make a copy of the board and then check against the copy
   */
   public static void explodeAllChar(char[][] board, char c)
   {
@@ -226,10 +229,13 @@ public class Array2DPractice
      xxxRxx
      Note that the method has to stop at the bottom of the array.
   */
-  public static void downString( char[][] board, int row, int col, String word )
-  {
-    /* YOUR AWESOME CODE HERE */
-  }
+  
+  // public static void downString( char[][] board, int row, int col, String word )
+  // {
+  //   for(int i=0; i<word.length(); i++){
+  //     board[row+i][col] = word[i];
+  //   }
+  // }
 
 
   public static void main( String[] args )
@@ -248,7 +254,7 @@ public class Array2DPractice
     // printBoard(c);
     // explodeSquare(b,3,5);
     // printBoard(b);
-    b[0][7] = 'b';
+    b[2][4] = 'b';
     b[2][3] = 'b';
     b[3][9] = 'b';
     printBoard(b);
