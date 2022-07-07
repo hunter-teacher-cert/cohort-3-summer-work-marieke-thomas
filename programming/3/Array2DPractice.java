@@ -230,12 +230,14 @@ OR make a copy of the board and then check against the copy
      Note that the method has to stop at the bottom of the array.
   */
   
-  // public static void downString( char[][] board, int row, int col, String word )
-  // {
-  //   for(int i=0; i<word.length(); i++){
-  //     board[row+i][col] = word[i];
-  //   }
-  // }
+  public static void downString( char[][] board, int row, int col, String word )
+  {
+    for(int i=0; i<word.length(); i++){
+      if(row+i < board.length && col < board[0].length){
+        board[row+i][col] = word.charAt(i);
+      }
+    }
+  }
 
 
   public static void main( String[] args )
@@ -259,6 +261,8 @@ OR make a copy of the board and then check against the copy
     b[3][9] = 'b';
     printBoard(b);
     explodeAllChar(b, 'b');
+    printBoard(b);
+    downString(b, 1, 3, "hello");
     printBoard(b);
   }
 }
