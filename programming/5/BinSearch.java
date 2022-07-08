@@ -22,36 +22,40 @@ public class BinSearch
     //Q: Why did the designers of this class opt for 2 binSearch methods instead of 1?
     //A: So that the original function call only needs 2 inputs, making it shorter to type in. The low and high position are know based on the length of the array so it would be unnecessarily tedious to make the user type them in
     //return binSearchRec( /* YOUR SMART CODE HERE */ );
-    //return binSearchRec( a, target, 0, a.length-1 );
-    return 1;
+    return binSearchRec( a, target, 0, a.length-1 );
   }
 
 
-  // public static int binSearchRec( int[] a, int target, int loPos, int hiPos )
-  // {
-  //   int tPos = -1; //init return var to flag/signal value
+  public static int binSearchRec( int[] a, int target, int lo, int hi )
+  {
+    int tPos = -1; //init return var to flag/signal value
 
-  //   int mPos = (lo + hi) / 2; //init tracker var for middle position
+    int mPos = (lo + hi) / 2; //init tracker var for middle position
 
-  //   //exit case. If lo & hi have crossed, target not present
-  //   if ( /* YOUR SMART CODE HERE */ )
-  //     return /* YOUR SMART CODE HERE */ ;
+    //System.out.println("Searching for " + target + " from "+ lo + " to " + hi + " at position " + mPos);
+    
+    //exit case. If lo & hi have crossed, target not present
+    if (lo>hi){
+      //System.out.println("Not here");
+      return -1;
+    }
 
-  //   // target found
-  //   if ( /* YOUR SMART CODE HERE */ ) {
-  //     /* YOUR SMART CODE HERE */
-  //   }
-  //   // value at mid index higher than target
-  //   else if ( /* YOUR SMART CODE HERE */ ) {
-  //     /* YOUR SMART CODE HERE */
-  //   }
-  //   // value at mid index lower than target
-  //   else if ( /* YOUR SMART CODE HERE */ ) {
-  //     /* YOUR SMART CODE HERE */
-  //   }
+    // target found
+    if (a[mPos] == target) {
+      //System.out.println("found it");
+      return mPos;
+    }
+    // value at mid index higher than target
+    else if (a[mPos] > target) {
+      return binSearchRec(a, target, lo, mPos-1);
+    }
+    // value at mid index lower than target
+    else if (a[mPos]<target) {
+      return binSearchRec(a, target, mPos+1, hi);
+    }
 
-  //   return tPos;
-  // }//end binSearchRec
+    return tPos;
+  }//end binSearchRec
 
 
   //tell whether an array is sorted in ascending order
@@ -89,7 +93,7 @@ public class BinSearch
   {
     //move the bar down to uncover tests in succession...
     
-    System.out.println("\nNow testing binSearch on int array...");
+
 
     //Declare and initialize array of ints
     int[] iArr = { 2, 4, 6, 8, 6, 42 };
@@ -105,11 +109,15 @@ public class BinSearch
       iArr3[i] = i * 2;
     }
 
+    //Added an example of an array with an odd number of ints
+    int[] iArr4 = {1, 3, 6, 7, 20};
+    System.out.print("iArr4: ");
+    printArray(iArr4);
+
     //printArray( iArr3 );
     System.out.println( "iArr3 sorted? -- " + isSorted(iArr3) );
 
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    //search for 6 in array
+    System.out.println( "now testing binSearch on iArr2..." );
     System.out.println( binSearch(iArr2,2) );
     System.out.println( binSearch(iArr2,4) );
     System.out.println( binSearch(iArr2,6) );
@@ -117,6 +125,7 @@ public class BinSearch
     System.out.println( binSearch(iArr2,13) );
     System.out.println( binSearch(iArr2,42) );
 
+    
     //search for 43 in array
     System.out.println( binSearch(iArr2,43) );
 
@@ -127,10 +136,11 @@ public class BinSearch
 
     //search for 43 in array
     System.out.println( binSearch(iArr3,43) );
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-    /* YOUR SMART CODE HERE :: Feel free to add extra tests...*/
-
+    
+    System.out.println( "now testing binSearch on iArr4..." );
+    System.out.println(binSearch(iArr4,7));
+    System.out.println(binSearch(iArr4,6));
+    System.out.println(binSearch(iArr4,1));
+    System.out.println(binSearch(iArr4,9));
   }
-
 }

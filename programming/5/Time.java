@@ -37,71 +37,63 @@ import java.util.*;
 
 
 public class Time {
-    // Instance Variable(s)
-    // You can change this if you want to use the alternate
-    // implementation of just storing the overall seconds.
+  // Instance Variable(s)
+  // You can change this if you want to use the alternate
+  // implementation of just storing the overall seconds.
     
-    int hours;
-    int minutes;
-    int seconds;
+  int hours;
+  int minutes;
+  int seconds;
 
-    // Constructors
-    public Time(){
-	this.hours = 0;
-	this.minutes = 0;
-	this.seconds = 0;
+  // Constructors
+  public Time(){
+  	this.hours = 0;
+  	this.minutes = 0;
+  	this.seconds = 0;
 	
-    }
+  }
 
-    /**
-       Parameters:
-       - hrs, mins, secs - the time you want to create the class as
+  /**
+    Parameters:
+    - hrs, mins, secs - the time you want to create the class as
 
-       Initialize this instance to represent hrs:mins:secs as the time.
-       
-     */
-    public Time(int hrs, int mins, int secs){
+    Initialize this instance to represent hrs:mins:secs as the time.
+  */
+  public Time(int hrs, int mins, int secs){
 
-	// your code here
-      hours = hrs;
-      minutes = mins;
-      seconds = secs;
-    }
+	  // your code here
+    hours = hrs;
+    minutes = mins;
+    seconds = secs;
+  }
     
     
-    // Methods
+  // Methods
 
-    /**
-       returns a string representation of the time
-    */
-    public String toString(){
-	return(hours + ":" + minutes + ":" + seconds);
-    }
-
-
-    
+  /**
+    returns a string representation of the time
+  */
+  public String toString(){
+	  return(String.format("%02d:%02d:%02d", this.hours, this.minutes, this.seconds));
+  }
 
     /**
        Parameters:
        - hrs,mins,secs - ints representing a time
-
-       modifies this instance to represent the time hrs:mins:secs
+      - modifies this instance to represent the time hrs:mins:secs
     */
-    public void set(int hrs, int mins, int secs){
-	// add the code to add the time represented by other
-	// to this instance.
-
-    }
+  public void set(int hrs, int mins, int secs){
+    this.hours = hrs;
+    this.minutes = mins;
+    this.seconds = secs;
+  }
 
     
 
-    /**
-       Parameters:
-       - other - a variable of type Time
-
-       modifies this instance to represent the result of adding it and
-       the time other.
-    */
+  /**
+    Parameters:
+    - other - a variable of type Time modifies this instance to represent the result of adding it and the time other.
+  */
     public void add(Time other){
 	// add the code to add the time represented by other
 	// to this instance.
@@ -131,8 +123,7 @@ public class Time {
        other - a variable of type Time
 
        Returns:
-       A positive number if this instance represents a time greater
-       than the time of other (this > other)
+       A positive number if this instance represents a time greater than the time of other (this > other)
 
        A negative number if this instance represents a time less
        than the time of other (this < other)
@@ -141,11 +132,28 @@ public class Time {
 
     */
     public int compareTo(Time other){
-	// your code here)
-
-	return 0; // change this
+      int GREATER = 1;
+      int EQUALS = 0;
+      int LESS = -1;
+      if (this.hours > other.hours){
+        return GREATER;
+      } else if (this.hours < other.hours){
+        return LESS;
+      } else { //hours equal
+        if (this.minutes > other.minutes){
+          return GREATER;
+        } else if (this.minutes < other.minutes){
+          return LESS;
+        } else { //minutes equal
+          if (this.seconds > other.seconds){
+            return GREATER;
+          } else if (this.seconds < other.seconds){
+            return LESS;
+          } else{ //seconds equal
+            return EQUALS;
+          }
+        }
+      }
     }
-    
-
-    
+        
 }//end class

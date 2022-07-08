@@ -129,6 +129,10 @@ public class Cgol
     setCell(board, 0, 0, 'X');
     setCell(board, 0, 1, 'X');
     setCell(board, 0, 2, 'X');
+    setCell(board, 3, 2, 'X');
+    setCell(board, 3, 3, 'X');
+    setCell(board, 4, 2, 'X');
+    setCell(board, 3, 4, 'X');
     Scanner in = new Scanner(System.in);
     // TASK:
     // Once your initial version is running,

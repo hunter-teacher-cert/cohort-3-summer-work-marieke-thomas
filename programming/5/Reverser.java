@@ -30,7 +30,7 @@ public class Reverser
     System.out.println( reverseR("abcdefg") );
     System.out.println( reverseR("stressed") );
     System.out.println( reverseR("amanaplanacanalPanama") );
-System.out.println( reverseR("amanaplanacanalPanama".toLowerCase()) );
+    System.out.println( reverseR("amanaplanacanalPanama".toLowerCase()) );
     //more tests welcome
     // got some good palindromes?
   }
