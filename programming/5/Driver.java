@@ -44,6 +44,11 @@ public class Driver {
     System.out.println("Compare t4 to t3: " + t4.compareTo(t3));
     System.out.println("Compare t3 to t4: " + t3.compareTo(t4));
     System.out.println("Compare t4 to t2: " + t4.compareTo(t2));
+    //Testint some edge case times to add
+    Time t5 = new Time(1, 59, 59);
+    Time t6 = new Time(2, 0, 1);
+    t5.add(t6);
+    System.out.println("t5 is " + t5.toString());
   }//end main()
 
 }//end class

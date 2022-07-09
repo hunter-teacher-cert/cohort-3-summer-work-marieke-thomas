@@ -98,7 +98,7 @@ public class Time {
 	// add the code to add the time represented by other
 	// to this instance.
       
-      this.hours += other.hours + (this.minutes + other.minutes)/60;
+      this.hours = this.hours + other.hours + (this.minutes + other.minutes + (this.seconds+other.seconds)/60)/60;
       this.minutes = (this.minutes + other.minutes + (this.seconds+other.seconds)/60)%60;
       this.seconds = (this.seconds + other.seconds)%60;
     }

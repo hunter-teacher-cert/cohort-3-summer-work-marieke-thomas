@@ -10,10 +10,13 @@ public class Beer{
       lastVerse();
     }
     else {
-      System.out.println(num + " bottles of beer on the wall,");
-      System.out.println(num + " bottles of beer,");
+      String bottles;
+      bottles = num == 1 ? "bottle" : "bottles";
+      System.out.println(num + " " + bottles + " of beer on the wall,");
+      System.out.println(num + " " + bottles + " of beer,");
       System.out.println("ya' take one down, ya' pass it around,");
-      System.out.println((num-1) + " bottles of beer on the wall.");
+      bottles = num == 2 ? "bottle" : "bottles";
+      System.out.println((num-1) + " " + bottles + " of beer on the wall.");
       System.out.println();
       verse(num-1);
     }
@@ -24,10 +27,4 @@ public class Beer{
     System.out.println("ya’ can’t take one down, ya’ can’t pass it around,");
     System.out.println("’cause there are no more bottles of beer on the wall!");
   }
-
-  public static void pluralOrNot(){
-    
-  }
 }
-
-//create function pluralOrNot using ternary operator
