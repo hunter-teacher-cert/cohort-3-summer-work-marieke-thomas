@@ -1,7 +1,7 @@
 /**
  * SuperArray by Team MarvelvsDC
  * Marieke Thomas
- * collaborators: First Last, First Last
+ * collaborators: Moo Joon Park, Greg Sciame, Kiana Herr
  */
 
 /**
@@ -58,25 +58,34 @@ public class SuperArray
 
 
   // ~~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~
+  public void print(){
+    for (int i = 0; i < this.numberElements; i++){
+      System.out.print(this.data[i] + " ");
+    }
+    System.out.println();
+  }
+  
   public void add( int value )
   {
     // test to see if we need to grow, then grow
-    /**
-       IMPORTANT:
-       This is the first code that should run in this method
-       but the last code you should write.
-       Implement the rest of this method first,
-       then only write this section once the rest is tested and working.
-    */
-    /* YOUR SIMPLE+SMART CODE HERE */
+    if (numberElements == this.data.length){
+      this.grow();
+      // int[] newData = new int[numberElements + 5];
+      // for (int i = 0; i<numberElements; i++){
+      //   newData[i] = this.data[i];
+      // }
+      // this.data = newData;
+    }
+    
 
-    // add item
-    /* YOUR SIMPLE+SMART CODE HERE */
-
-
+    // add item and then increment numberElements
+    this.data[numberElements++] = value;
+//The ++ after numberElements means it evaluates first, then increments
+    //If you wanted it to increment forst (which we don't in this situation) you could put:
+    //++numberElements
+    
     // increment numberElements
-    /* YOUR SIMPLE+SMART CODE HERE */
-
+    // numberElements ++;
   }//end add()
 
 
@@ -87,18 +96,22 @@ public class SuperArray
   }
 
 
-  // public int get(int index)
-  // {
-  //   //return item at index
-  //   /* YOUR SIMPLE+SMART CODE HERE */
-  // }
+  public int get(int index)
+  {
+    //return item at index
+    return this.data[index];
+  }
 
 
-  // public String toString()
-  // {
-  //   //return stringified version of this Object
-  //   /* YOUR SIMPLE+SMART CODE HERE */
-  // }//end toString()
+  public String toString()
+  {
+    //return stringified version of this Object
+    String s = "";
+    for (int i = 0; i < this.numberElements; i++){
+      s += (this.data[i] + " ");
+    }
+    return s;
+  }//end toString()
 
 
   //return Stringified version of this Object,
@@ -119,42 +132,70 @@ public class SuperArray
 
   public void remove(int index)
   {
+    if(index >= numberElements|| index < 0){
+      System.out.println("Cannot remove beyond the size of the array. Array is unchanged.");
+      return;
+    }
     // shift items down to remove the item at index
-    /* YOUR SIMPLE+SMART CODE HERE */
+    for(int i = index; i < numberElements-1; i++){
+      this.data[i] = this.data[i+1];
+    }
+    //Note that the last piece of data doesn't get overwritten (so that spot in memory might still be storing a value) but since we decrement numberElements it is no longer counted as data in our array
 
     // subtract fom numElements;
-    /* YOUR SIMPLE+SMART CODE HERE */
+    numberElements --;
   }
 
 
   public void add(int index, int value)
   {
     // see if there's enough room
-    /* YOUR SIMPLE+SMART CODE HERE */
+    if(index > numberElements || index < 0){
+      System.out.println("Cannot add beyond the size of the array. Array is unchanged.");
+      return;
+    }
+    if(numberElements == this.data.length){
+      this.grow();
+    }
 
     // shift elements toward the end of the array
-    /* YOUR SIMPLE+SMART CODE HERE */
+    for(int i = numberElements; i > index; i--){
+      this.data[i] = this.data[i-1];
+    }
 
     // insert new element
-    /* YOUR SIMPLE+SMART CODE HERE */
+    this.data[index] = value;
 
     // increment numElements
-    /* YOUR SIMPLE+SMART CODE HERE */
+    numberElements ++;
+
+    //Q: Should a user be allowed to insert an element beyond the indices of used elements?
   }
 
+  public void replace(int index, int value){
+    if(index > numberElements || index < 0){
+      System.out.println("Cannot edit beyond the size of the array. Array is unchanged.");
+      return;
+    }
+    this.data[index] = value;
+  }
+ 
 
   private void grow()
   {
+    //note that this is a private method since it is used as a helper method for our other methods
     // create a new array with extra space
     // Q: How did you decide how much to increase capacity by?
-    /* YOUR SIMPLE+SMART CODE HERE */
+    int newData[] = new int[numberElements + 10];
 
     // copy over all the elements from the old array to the new one
-    /* YOUR SIMPLE+SMART CODE HERE */
+    for (int i=0; i<numberElements; i++){
+      newData[i] = this.data[i];
+    }
 
     // point data to the new array
     // Q: How does this look when illustrated using encapsulation diagram?
-    /* YOUR SIMPLE+SMART CODE HERE */
+    this.data = newData;
   }//end grow()
 
 }//end class
