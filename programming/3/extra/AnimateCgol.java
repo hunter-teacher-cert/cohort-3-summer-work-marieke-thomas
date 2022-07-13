@@ -30,7 +30,7 @@ public class AnimateCgol
 
   // "repaint" by using an ANSI control character to
   // repeatedly place the cursor at the origin (upper left)
-  public static void animate(int n, char[][] board, int generation)
+  public static char[][] animate(int n, char[][] animateBoard, int generation)
   {
     //clear screen, place cursor at origin (upper left)
     System.out.print("[0;0H\n");
@@ -42,14 +42,14 @@ public class AnimateCgol
     // re-apply your process.
 
 
-    System.out.println("we are aaanimaniacs " + n);
-    board = generateNextBoard(board);
+    animateBoard = generateNextBoard(animateBoard);
     System.out.println("Gen " + generation + ":");
-    printBoard(board);
+    printBoard(animateBoard);
     System.out.println("--------------------------\n\n");
     generation++;
 
-    delay(1000);
+    delay(200);
+    return animateBoard;
   }
 
 
@@ -62,9 +62,9 @@ public class AnimateCgol
     Scanner in = new Scanner(System.in);
     int generation = 0;
 
-
-    for (int frame = 0; frame < 10; frame++) {
-      animate(frame, board, generation);
+    for (int frame = 0; frame < 30; frame++) {
+      board = animate(frame, board, generation);
+      generation ++;
     }
 
   }//end main()

@@ -154,7 +154,7 @@ public class Cgol
       System.out.println("Gen " + generation + ":");
       printBoard(board);
       System.out.println("--------------------------\n\n");
-      System.out.print("Press 'enter' to produce the next generation, or any other key to quit ");
+      System.out.print("Press 'enter' to produce the next generation, or any other key and then 'enter' to quit ");
     response = in.nextLine();
       generation++;
     }
