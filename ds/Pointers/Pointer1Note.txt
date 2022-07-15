@@ -1,0 +1,3 @@
+NOTE the Pointer1 diagram is slightly incorrect-- when this line happens:
+n2 = new Node(20);
+n1 is still referencing what was the original n2, not the new n2
