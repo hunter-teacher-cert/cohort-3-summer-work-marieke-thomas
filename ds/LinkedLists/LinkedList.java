@@ -44,7 +44,11 @@ public class LinkedList{
   Returns the String in the node at location index.
   */
   public String get(int index){
-    return "";
+    Node walker = this.head;
+    for (int i = 0; i < index; i++){
+      walker= walker.getNext();
+    }
+    return walker.getData();
   }
 
   /**
@@ -87,7 +91,13 @@ public class LinkedList{
   returns the number of elements in the list
   */
   public int size(){
-    return 0;
+    int index = 0;
+    Node walker = this.head;
+    while(walker.getNext() != null){
+      index ++;
+      walker = walker.getNext();
+    }
+    return index;
   }
 
 
@@ -104,7 +114,17 @@ public class LinkedList{
   "a"-> "z" -> "b" -> "c" -> "d"
   */
   public void add(int index, String value){
-
+    if(index ==0){
+      this.add(value);
+      return;
+    }
+    Node walker = this.head;
+    Node newNode = new Node(value);
+    for (int i = 0; i < index-1; i++){
+      walker = walker.getNext();
+    }
+    newNode.setNext(walker.getNext());
+    walker.setNext(newNode);
   }
 
 
