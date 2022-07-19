@@ -137,7 +137,13 @@ public class LinkedList{
   indexOf("d") would return 3 since "d" is at location 3.
   */
   public int indexOf(String value){
-    return 0;
+    Node walker = this.head;
+    int index = 0;
+    while(walker.getData()!= value){
+      walker = walker.getNext();
+      index++;
+    }
+    return index;
   }
 
 
@@ -147,9 +153,15 @@ public class LinkedList{
   It should then copy all of the values to the array and return
   the array.
   */
-  public String[] toArray(){
-    return null;
-  }
+  // public String[] toArray(){
+  //   String[] copy = new String[this.size()];
+    
+  //   Node walker = head;
+  //   while(walker != null){
+      
+  //   }
+  //   return null;
+  // }
 
 
 
@@ -165,3 +177,7 @@ public class LinkedList{
   public void remove(int index){
   }
 }
+
+//Extra challenge: int[] indicesOf(String value){} // Returns ALL indices the value occurs in.
+
+//Extra challenge: void reverse(){} // alter the order of the nodes such that they are now in the opposite order

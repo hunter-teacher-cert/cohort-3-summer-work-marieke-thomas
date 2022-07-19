@@ -1,0 +1,60 @@
+First Last
+Team index 14 :: Marieke Thomas, Sam L, Alicia Wade
+Methods - Summer 2022
+
+CODE TRACING in the classroom
+======================================
+
+
+PROS:
+---------------------------------------
+<general positive aspects of incorporating code or algorithm tracing into a CS course, from your perspective>
+Helps understand the code given
+Helps track what's implemented on each line of the code
+Visual-- apeals to students who process code visually
+
+CONS:
+---------------------------------------
+<general negative aspects of incorporating code or algorithm tracing into a CS course, from your perspective>
+Time-consuming
+
+BEST FOR:
+---------------------------------------
+<types of activities from courses you teach or have taught that could benefit from an emphasis on tracing>
+Could be used to look for mistakes in code
+Introducing a new concept
+Recursion and loops especially
+Sorting algorithms
+
+LEAST-SUITED TO:
+---------------------------------------
+<opposite of above -- and why>
+Very simple code
+Control flow
+Arrays and 2D arrays need a different type of visualization (though you could use this to show some algorithms involving them like the method to reverse an array, for example)
+
+
+PROVEN PRO-TIPS:
+---------------------------------------
+<
+ anything that has worked well for any member of your team, in the way of ...
+ * live tracing ("trace-along" a la livecoding)
+ * tracing as an assignment
+ * tools, physical/online/otherwise that make it easier/clearer
+ * etc 
+>
+Use colors!
+Tree diagrams
+Talk it out first
+Group squiggle (each group member has a unique color pen and they take turns writing lines in their color)
+Copy-paste the code on the screen/handout
+
+RESOURCES:
+---------------------------------------
+< any links, reading titles, names, etc. you have find useful >
+How to Decipher Myster Code video: https://youtu.be/TZss5ukwN8s
+
+
+OTHER:
+---------------------------------------
+Use lots of different colors!

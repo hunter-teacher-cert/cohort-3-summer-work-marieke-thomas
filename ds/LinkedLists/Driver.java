@@ -21,5 +21,9 @@ public class Driver{
 
     l.add(6,"end");
     System.out.println(l);
+
+    System.out.println(l.indexOf("Top Chef")); //4
+    System.out.println(l.indexOf("beginning")); //0
+    System.out.println(l.indexOf("end")); //6
   }
 }
