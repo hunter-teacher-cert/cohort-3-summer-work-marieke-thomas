@@ -54,6 +54,17 @@ public class SortSearch{
 	
     }
 
+  public SortSearch(int size, boolean ordered){
+    data = new ArrayList<Integer>();
+    if (ordered){
+      for (int i = 0 ; i < size; i++){
+        data.add(i);
+      }
+    } else {
+      SortSearch(size);
+    }
+  }
+
     /* Convenience function to get data out of the ArrayList from the driver */
     public int get(int index){
 	return this.data.get(index);
@@ -78,7 +89,11 @@ public class SortSearch{
     */
     public int findSmallestIndex(int start){
 	int smallIndex = start;
-      
+      for (int i = start; i<data.size();i++){
+        if (data.get(i) < data.get(smallIndex)){
+          smallIndex = i;
+        }
+      }
 	
 	return smallIndex;
     }
@@ -94,15 +109,20 @@ public class SortSearch{
          For each index, find the smallest from that Location
 	 to the end of the array and swap it with that index.
 
-	 
-       
-
     */
+  //Selection Sort
     public void sort(){
-
-
+      int temp;
+      int smallIndex;
+      for (int i = 0; i < data.size(); i++){
+        temp = data.get(i);
+        smallIndex = findSmallestIndex(i);
+        data.set(i,data.get(smallIndex));
+        data.set(smallIndex, temp);
+      }
     }
 
+  
 
 
     /* Search project starts here */
@@ -118,9 +138,12 @@ public class SortSearch{
 
     */
     public int linearSearch(int value){
-	
-	
-	return 0; // replace this return
+      for (int i=0; i<data.size(); i++){
+        if (value == data.get(i)){
+          return i;
+        }
+      }
+	return -1; // replace this return
     }
     
     /**
@@ -134,11 +157,56 @@ public class SortSearch{
 	// while we're not done:
 	//   if the item is at data.get(middle), return middle
 	//   otherwise, update high, low, and middle
+      int low = 0;
+      int high = data.size()-1;
+      int middle = (low + high)/2;
+      while(!(low>high)){
+        middle = (low + high)/2;
+        if (data.get(middle) == value){
+          return middle;
+        } else if (data.get(middle)> value){
+          high = middle-1;
+        } else if (data.get(middle) < value){
+          low = middle + 1;
+        }
+      }
 
-	return 0;
+	return -1;
+	    
+    }//doesn't necessarily give the first instance of the value if it occurs multiple times
+
+     public int binarySearchGetFirst(int value){
+
+	// create assign variables  representing the high, low and middle indices 
+	// while we're not done:
+	//   if the item is at data.get(middle), return middle
+	//   otherwise, update high, low, and middle
+      int low = 0;
+      int high = data.size()-1;
+      int middle = (low + high)/2;
+      while(!(low>high)){
+        middle = (low + high)/2;
+        if (data.get(middle) == value){
+          break;
+        } else if (data.get(middle)> value){
+          high = middle-1;
+        } else if (data.get(middle) < value){
+          low = middle + 1;
+        }
+        if (low > high){
+          return -1;
+        }
+      }
+       while (true){
+         if (middle != 0 && data.get(middle) == data.get(middle-1)){
+           middle --;
+         } else{
+           return middle;
+         }
+       }
 	    
     }
-    
+  
     /**
        Implement a RECURSIVE binary search as specified by the comments
        
@@ -146,11 +214,19 @@ public class SortSearch{
     */
 
     public int binarySearchRecursive(int value, int lowIndex, int highIndex){
+      int middle = (lowIndex + highIndex)/2;
 
 	// refer to class discussion
-	
-	return 0;
-	    
+      if (lowIndex > highIndex){
+        return -1;
+      } else if (data.get(middle) == value){
+  return middle;
+      } else if (data.get(middle) < value){ //value is higher
+  return binarySearchRecursive(value, middle+1, highIndex);  
+      } else{ //value is lower
+  return binarySearchRecursive(value, lowIndex, middle-1);
+      }
+
     }
     
 	
@@ -163,7 +239,6 @@ public class SortSearch{
 	Collections.sort(data);
 	
     }
-    
-
-    
 }
+
+//super challenge: Write a program that animates a binary search
